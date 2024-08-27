@@ -15,6 +15,7 @@ const arabicToRoman = {
 };
 
 const arabicToRomanNumberal = (arabicInput) => {
+  let arabicNumeralArr = [];
   let romanNumberalArr = [];
 
   let arabicNumber = arabicInput;
@@ -28,12 +29,20 @@ const arabicToRomanNumberal = (arabicInput) => {
     console.log("arabicArr: ", arabicArr[i]);
     while (arabicNumber >= arabicArr[i] && arabicNumber > 0) {
       arabicNumber = arabicNumber - arabicArr[i];
-      romanNumberalArr.push(arabicArr[i]);
-      console.log("current romanNumeralArr: ", romanNumberalArr);
+      arabicNumeralArr.push(arabicArr[i]);
+      console.log("current romanNumeralArr: ", arabicNumeralArr);
     }
   }
 
+  console.log(arabicNumeralArr);
+
+  arabicNumeralArr.map((num) => {
+    romanNumberalArr.push(arabicToRoman[num]);
+  });
+
   console.log(romanNumberalArr);
+
+  return romanNumberalArr.join("");
 };
 
-console.log(arabicToRomanNumberal(2572));
+console.log(arabicToRomanNumberal(1729));
