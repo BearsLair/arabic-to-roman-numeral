@@ -20,29 +20,20 @@ const arabicToRomanNumberal = (arabicInput) => {
 
   let arabicNumber = arabicInput;
 
-  console.log("initial number: ", arabicNumber);
-
   const arabicArr = Object.keys(arabicToRoman).reverse();
-  console.log(arabicArr);
 
   for (let i = 0; i < arabicArr.length; i++) {
-    console.log("arabicArr: ", arabicArr[i]);
     while (arabicNumber >= arabicArr[i] && arabicNumber > 0) {
       arabicNumber = arabicNumber - arabicArr[i];
       arabicNumeralArr.push(arabicArr[i]);
-      console.log("current romanNumeralArr: ", arabicNumeralArr);
     }
   }
-
-  console.log(arabicNumeralArr);
 
   arabicNumeralArr.map((num) => {
     romanNumberalArr.push(arabicToRoman[num]);
   });
 
-  console.log(romanNumberalArr);
-
   return romanNumberalArr.join("");
 };
 
-console.log(arabicToRomanNumberal(1729));
+console.log(arabicToRomanNumberal(1295));
