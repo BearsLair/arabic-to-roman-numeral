@@ -14,24 +14,30 @@ const arabicToRoman = {
   1: "I",
 };
 
-const arabicToRomanNumberal = (arabicInput) => {
-  let arabicNumeralArr = [];
-  let romanNumberalArr = [];
+const arabicToRomanNumeral = (arabicInput) => {
+  if (arabicInput > 3999) {
+    return "Please enter a number less than or equal to 3999";
+  } else if (arabicInput < 1) {
+    return "Please enter a number greater than or equal to 1";
+  } else {
+    let arabicNumeralArr = [];
+    let romanNumberalArr = [];
 
-  let arabicNumber = arabicInput;
+    let arabicNumber = arabicInput;
 
-  const arabicArr = Object.keys(arabicToRoman).reverse();
+    const arabicArr = Object.keys(arabicToRoman).reverse();
 
-  for (let i = 0; i < arabicArr.length; i++) {
-    while (arabicNumber >= arabicArr[i] && arabicNumber > 0) {
-      arabicNumber = arabicNumber - arabicArr[i];
-      arabicNumeralArr.push(arabicArr[i]);
+    for (let i = 0; i < arabicArr.length; i++) {
+      while (arabicNumber >= arabicArr[i] && arabicNumber > 0) {
+        arabicNumber = arabicNumber - arabicArr[i];
+        arabicNumeralArr.push(arabicArr[i]);
+      }
     }
+
+    arabicNumeralArr.map((num) => {
+      romanNumberalArr.push(arabicToRoman[num]);
+    });
+
+    return romanNumberalArr.join("");
   }
-
-  arabicNumeralArr.map((num) => {
-    romanNumberalArr.push(arabicToRoman[num]);
-  });
-
-  return romanNumberalArr.join("");
 };
