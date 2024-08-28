@@ -35,5 +35,3 @@ const arabicToRomanNumberal = (arabicInput) => {
 
   return romanNumberalArr.join("");
 };
-
-console.log(arabicToRomanNumberal(1295));
