@@ -1,3 +1,7 @@
+const inputNumber = document.getElementById("number");
+const submitBtn = document.getElementById("convert-btn");
+const output = document.getElementById("output");
+
 const arabicToRoman = {
   1000: "M",
   900: "CM",
@@ -41,3 +45,8 @@ const arabicToRomanNumeral = (arabicInput) => {
     return romanNumberalArr.join("");
   }
 };
+
+submitBtn.addEventListener("click", () => {
+  output.textContent = arabicToRomanNumeral(inputNumber.value);
+  inputNumber.value = "";
+});
