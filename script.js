@@ -32,9 +32,14 @@ const arabicToRomanNumeral = (arabicInput) => {
     const arabicArr = Object.keys(arabicToRoman).reverse();
 
     for (let i = 0; i < arabicArr.length; i++) {
-      while (arabicNumber >= arabicArr[i] && arabicNumber > 0) {
+      console.log("Current location in RN array: ", arabicArr[i]);
+
+      while (arabicNumber >= arabicArr[i] && arabicNumber > arabicArr[i] - 1) {
+        console.log("Arabic # before: ", arabicNumber);
         arabicNumber = arabicNumber - arabicArr[i];
+        console.log("Arabic # after: ", arabicNumber);
         arabicNumeralArr.push(arabicArr[i]);
+        console.log("Current Arabic array...", arabicNumeralArr);
       }
     }
 
