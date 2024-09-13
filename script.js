@@ -19,7 +19,9 @@ const arabicToRoman = {
 };
 
 const arabicToRomanNumeral = (arabicInput) => {
-  if (arabicInput > 3999) {
+  if (arabicInput === "") {
+    return "Please enter a valid number";
+  } else if (arabicInput > 3999) {
     return "Please enter a number less than or equal to 3999";
   } else if (arabicInput < 1) {
     return "Please enter a number greater than or equal to 1";
